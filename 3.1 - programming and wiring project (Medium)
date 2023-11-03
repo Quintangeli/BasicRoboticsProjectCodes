@@ -1,0 +1,40 @@
+const int sensorPin = __;   //plug the TMP36 sensor into analog pin 0
+const _____ baselineTemp = 20.0;   //int = integer, what data type allows decimals?
+____ setup() {
+  Serial.begin(____); // open a serial port
+  for (int pinNumber = 2; pinNumber < 5; pinNumber++) {
+    pinMode(pinNumber, ______);   //these are all LEDs
+    ____________(pinNumber, LOW);   //turn off all LEDs
+  }
+}
+____ loop() {
+  int sensorVal = __________(sensorPin);   //take a reading of your sensorPin
+  ______.print("Sensor Value: ");
+  ______.print(sensorVal);
+  // convert the ADC reading to voltage
+  float voltage = (sensorVal / 1024.0) * 5.0;
+  Serial.print(", Volts: ")
+  Serial.print(voltage)
+  Serial.print(", degrees C: ")
+  // convert the voltage to temperature in degrees
+  float temperature = (voltage - .5) * 100;
+  Serial._______(temperature);   //display the temperature THEN create a new line in the Serial Monitor
+  if (temperature _ baselineTemp) {   /ask if temperature is LESS THAN baselineTemp
+    ____________(2, LOW);   //turn the LED on pin 2 OFF
+    digitalWrite(_, LOW);   //turn the LED on pin 3 OFF
+    digitalWrite(4, ___);   //turn the LED on pin 4 OFF
+  } else if (temperature >= baselineTemp + 2 && temperature < baselineTemp + 4) {
+    ____________(_, ____);   //turn the LED on pin 2 ON
+    ____________(_, ____);   //turn the LED on pin 3 OFF
+    ____________(_, ____);   //turn the LED on pin 4 OFF
+  } else if (temperature >= baselineTemp + 4 && temperature < baselineTemp + 6) {
+    ____________(_, ____);   //turn the LED on pin 2 ON
+    ____________(_, ____);   //turn the LED on pin 3 ON
+    ____________(_, ____);   //turn the LED on pin 4 OFF
+  } else if (temperature >= baselineTemp + 6) {
+    ____________(_, ____);   //turn the LED on pin 2 ON
+    ____________(_, ____);   //turn the LED on pin 3 ON 
+    ____________(_, ____);   //turn the LED on pin 4 ON 
+  }
+  _____(_);   //wait for 1 millisecond
+}
