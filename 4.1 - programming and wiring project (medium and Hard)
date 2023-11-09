@@ -1,0 +1,43 @@
+const int greenLEDPin = _;   //LED in digital pin 9
+Const Int redLEDPin = _;   //LED in digital pin 11
+Const Int blueLEDPin = _;   //LED in digital pin 10
+Const Int redSensorPin = _;   //photoresistor in analog pin 0
+const int greenSensorPin = _;   //photoresistor in analog pin 1
+const int blueSensorPin = _;   //photoresistor in analog pin 2
+___ redValue = 0;
+___ greenValue = 0;
+___ blueValue = 0;
+___ redSensorValue = 0;
+___ greenSensorValue = 0;
+___ blueSensorValue = 0;
+void _____() {
+  Serial._____(9600);
+  _______(greenLEDPin, ______);
+  _______(redLEDPin, ______);
+  _______(blueLEDPin, ______);
+}
+void ____() {
+  redSensorValue = analogRead(redSensorPin);
+  ________;   //wait for 5 milliseconds
+  greenSensorValue = analogread(greenSensorPin);
+  ________;   //wait for 5 milliseconds
+  blueSensorValue = analogRead(blueSensorPin);
+  ______.print(“Raw Sensor Values \t Red: “);
+  ______.print(redSensorValue);
+  ______.print(“\t Green: “);
+  ______._____(greenSensorValue);
+  ______._____(“\t Blue: “);
+  Serial.println(blueSensorValue);
+  redValue = redSensorValue / 4
+  greenValue = greenSensorValue / 4
+  blueValue = blueSensorValue / 4;
+  ______._____(“Mapped Sensor Values \t Red: “);   //display the quoted message
+  ______._____(redValue);   //display the variable redValue
+  ______._____(“\t Green: “);   //display the quoted message
+  ______._____(greenValue);   //display the variable greenValue
+  ______._____(“\t Blue: “);   //display the quoted message
+  ______.println(blueValue);   //display the variable blueValue - then create a new line
+  analog_____(redLEDPin, redValue);   //send a PWM signal - (redLEDPin, redValue)
+  ___________(___________, greenValue);   //send a PWM signal - (greenLEDPin, greenValue)
+  ___________(__________, _________);   //send a PWM signal - (blueLEDPin, blueValue)
+}
