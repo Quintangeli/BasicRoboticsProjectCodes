@@ -1,0 +1,45 @@
+//Mr. Q
+//How to use the map() function
+//wire a servo to pin 9
+//wire an HC-SR04 ultrasonic sensor to 10(echo) and 11(trig)
+
+#include <Servo.h>
+Servo myServo;
+
+const int echo = 10;
+const int trig = 11;
+const int servoPin = 9;
+
+long sensorState;
+int distance;
+int mappedDistance;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(echo, INPUT);
+  pinMode(trig, OUTPUT);
+  myServo.attach(servoPin);
+}
+
+void loop() {
+  UltrasonicSensorReading();
+  Serial.print("distance = ");
+  Serial.print(distance);
+
+  mappedDistance = map(distance, 3, 30, 0, 180);
+  Serial.print("cm \tmappedDistance = ");
+  Serial.println(mappedDistance);
+  myServo.write(mappedDistance);
+  delay(10);
+}
+
+void UltrasonicSensorReading() {
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+
+  sensorState = pulseIn(echo, HIGH);
+  distance = sensorState * 0.034 / 2;
+}
