@@ -1,0 +1,26 @@
+//Mr. Q
+//How to use the map() function
+//wire a potentiometer to pin A0
+
+const int potPin = A0;
+int potState;
+int mappedPotState;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(potPin, INPUT);
+}
+
+void loop() {
+  potState = analogRead(potPin);
+  Serial.print("potState = ");
+  Serial.print(potState);
+
+  //the map() function has 5 parameters
+  //map(inputValue, lowIn, highIn, lowOut, highOut);
+  mappedPotState = map(potState, 0, 1023, 0, 100);
+  Serial.print("\t mappedPotState = ");
+  Serial.println(mappedPotState);
+
+  delay(10);
+}
