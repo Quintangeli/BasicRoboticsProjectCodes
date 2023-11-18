@@ -1,0 +1,31 @@
+//Mr. Q
+//How to use the map() function
+//wire a servo to pin 9
+//wire a photoresistor to pin A0
+
+#include <Servo.h>
+Servo myServo;
+
+const int photoPin = A0;
+const int servoPin = 9;
+
+int photoState;
+int mappedPhotoState;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(photoPin, INPUT);
+  myServo.attach(servoPin);
+}
+
+void loop() {
+  photoState = analogRead(photoPin);
+  Serial.print("photoState = ");
+  Serial.print(photoState);
+  //The first two numbers in map() need match your photoresistor's range
+  mappedPhotoState = map(photoState, 662, 974, 0, 180);
+  Serial.print("\tmappedPhotoState = ");
+  Serial.println(mappedPhotoState);
+  myServo.write(mappedPhotoState);
+  delay(10);
+}
