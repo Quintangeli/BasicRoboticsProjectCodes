@@ -1,0 +1,28 @@
+//Mr. Q
+//How to use the map() function
+//wire a servo to pin 9
+//wire a potentiometer to pin A0
+
+#include <Servo.h>
+Servo myServo;
+
+const int potPin = A0;
+const int servoPin = 9;
+
+int potState;
+int mappedPotState;
+
+void setup() {
+  pinMode(potPin, INPUT);
+  myServo.attach(servoPin);
+
+}
+
+void loop() {
+  potState = analogRead(potPin);
+  //the map() function has 5 parameters
+  //map(inputValue, lowIn, highIn, lowOut, highOut);
+  mappedPotState = map(potState, 0, 1023, 0, 180);
+  myServo.write(mappedPotState);
+  delay(10);
+}
