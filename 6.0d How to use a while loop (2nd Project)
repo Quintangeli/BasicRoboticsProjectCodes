@@ -1,0 +1,26 @@
+//Mr. Q
+//How to use and program a while loop
+//wire the components needed
+
+const int ledPin = 12;
+const int buttonPin = 2;
+
+int buttonState;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(buttonPin, INPUT);
+}
+
+void loop() {
+  buttonState = digitalRead(buttonPin);
+
+  //while the condition is true, stay in the while func.
+  while (digitalRead(buttonPin) == HIGH) {
+    digitalWrite(ledPin, HIGH);
+    delay(50);
+    //restate the  value of the buttonState in the while function
+    buttonState = digitalRead(buttonPin);
+  }
+  digitalWrite(ledPin, LOW);
+}
