@@ -1,0 +1,19 @@
+#include <_____.h>   //Include a library named 'Servo'
+Servo myServo;   //Create a servo object named 'myServo'
+___ _____ potPin = __;   //declare a constant variable that represents a potentiometer in analog pin 0
+int potVal;
+int angle;
+____ _____() {   //open the setup fuction
+  myServo.attach(_);   //attach 'myServo' to pin 9
+  Serial._____(____);   //open the serial monitor
+}
+____ ____() {   //open the loop function
+  potVal = __________(potPin);   //assign 'potVal' the value -> the analog reading of 'potPin'
+  ______._____("potVal: ");   //display "potVal: "
+  ______._____(potVal);   //display the value of 'potVal'
+  angle = map(potVal, _, ____, _, ___);   //assign 'angle' the value -> map 'potVal' from 0-1023 to 0-179
+  Serial.print(___________);   // display ", angle: "
+  Serial.println(_____);   //display the value of 'angle'
+  myServo.write(_____);   //set 'myServo' to 'angle'
+  _____(__);   //wait for 15 milliseconds
+}
