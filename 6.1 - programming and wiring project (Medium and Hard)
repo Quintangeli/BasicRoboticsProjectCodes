@@ -1,0 +1,24 @@
+___ sensorValue;   //declare a variable named 'sensorValue'
+___ _________ = 1023;   //declare a variable named 'sensorLow' and initialize it to 1023
+int __________ = _;   //declare a variable named 'sensorHigh' and initialize it to 0
+_____ ___ ledPin = __;   //declare a constant variable for an led in pin 13
+____ _____() {   //open the setup function
+  _______(ledPin, ______);   //set the mode of the led's pin
+  ____________(ledPin, ____);   //turn on the led
+  while (millis() < ____) {   //while the current time, 'millis()', is less than 5000 - do the following -->
+    ___________ = analogRead(A0);   //assign 'sensorValue' the value of an analog reading of pin A0
+    if (sensorValue > sensorHigh) {   //ask if 'sensorValue is GREATER THAN 'sensorHigh'
+      sensorHigh = sensorValue;   //assign 'sensorHigh' the value of 'sensorValue'
+    }
+    if (sensorValue < sensorLow) {   //ask if 'sensorValue is LESS THAN 'sensorLow'
+      _________ = ___________;   //assign 'sensorLow' the value of 'sensorValue'
+    }
+  }
+  digitalWrite(___________);   //turn off the led
+}
+____ ____() {   //open the loop function
+  ___________ = __________(A0);   //assign 'sensorValue' the value of an analog reading of pin A0
+  int pitch = ___(sensorValue, sensorLow, sensorHigh, 50, 4000);   //declare and assign 'pitch' the value of the mapped 'sensorValue'
+  ____(8, pitch, 20);   //create a tone() --> on pin 8| with the frequency 'pitch'| for 20 milliseconds
+  __________   //wait for 10 milliseconds
+}
