@@ -1,0 +1,16 @@
+//Mr. Q
+//How to use a while loop
+//wire the components needed
+
+const int ledPin = 13;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  while (millis() < 5000) { //millis() references time
+    digitalWrite(ledPin, HIGH);
+  }
+  digitalWrite(ledPin, LOW);
+}
