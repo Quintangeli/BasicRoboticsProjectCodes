@@ -15,8 +15,8 @@ void setup() {
 void loop() {
   buttonState = digitalRead(buttonPin);
 
-  //while the condition is true, stay in the while func.
-  while (digitalRead(buttonPin) == HIGH) {
+  //while the condition is true, stay in the while function
+  while (buttonState == HIGH) {
     digitalWrite(ledPin, HIGH);
     delay(50);
     //restate the  value of the buttonState in the while function
