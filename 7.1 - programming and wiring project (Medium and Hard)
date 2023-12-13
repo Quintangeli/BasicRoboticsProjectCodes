@@ -1,0 +1,23 @@
+int notes[] = {___, ___, ___, ___};   //create an array of values:262, 294, 330, 349
+void setup() {
+  ______._____(____);   //open the serial monitor
+}
+void loop() {
+  int keyVal = __________(A0)   //assign 'keyVal' the value of the analog reading of pin A0
+               ______.println(______)   //display the variable 'keyVal'
+  __ (______ == ____) {   //ask if 'keyVal' is equal to 1023
+    tone(_, notes[0])   //create a tone on pin 8 at frequency notes[0]
+  }
+  else if (keyVal >= 990 && keyVal <= 1010) {   //otherwise ask if 'keyVal' is >= 990 and <= 1010
+    ____(8, notes[1])   //create a tone on pin 8 at frequency notes[1]
+  }
+  ____ if (keyVal __ 505 __ keyVal __ 515) {   //otherwise ask if 'keyVal' is >= 505 and <= 515
+    tone(_, notes[_])   //create a tone on pin 8 at frequency notes[2]
+  }
+  ____ __ (keyVal >= _ && keyVal <= __) {   //otherwise ask if 'keyVal' is >= 5 and <= 10
+    ____(_, _____[_])   //create a tone on pin 8 at frequency notes[3]
+  }
+  else {
+    noTone(_)   //turn off the tone on pin 8
+  }
+}
