@@ -1,0 +1,34 @@
+//Mr. Q
+//How to use FOR loops
+//Wire three LEDs to pin 2, 3, and 4
+
+const int ledPinG = 2;
+const ___ ledPinY = 3;
+const ___ ledPinR = 4;
+
+____ setup() {
+  for (int i = 2; i <= 4; i++) { //i is a local variable
+    pinMode(i, OUTPUT);   //i cycles from 2 through 4
+  }
+}
+
+____ loop() {
+  for (int i = 0; i < 3; i++) { //for 3 cycles
+    digitalWrite(ledPinG, HIGH);
+    delay(200);
+    digital_____(ledPinG, LOW);
+    delay(200);
+  }
+  for (int i = 0; i <= 3; i++) { //for 4 cycles
+    digitalWrite(ledPinY, HIGH);
+    delay(200);
+    digital_____(ledPinY, LOW);
+    delay(200);
+  }
+  for (int i = 5; i > 0; i--) { //for 5 cycles
+    digitalWrite(ledPinR, HIGH);
+    delay(200);
+    digitalWrite(ledPinR, LOW);
+    delay(200);
+  }
+}
